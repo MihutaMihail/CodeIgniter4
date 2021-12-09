@@ -24,8 +24,8 @@
                 <tbody>
                 <?php foreach ($tasks as $task) : ?>
                     <tr>
-                        <th><?= $task->id ?></th>
-                        <td><?= $task->text ?></td>
+                        <th><?= esc($task->id) ?></th>
+                        <td><?= esc($task->text) ?></td>
                     </tr>
                 <?php endforeach ?>
                 </tbody>
