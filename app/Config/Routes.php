@@ -22,6 +22,10 @@ $routes->setDefaultMethod('index');
 $routes->setTranslateURIDashes(false);
 $routes->set404Override();
 $routes->setAutoRoute(false);
+$routes->get('/', 'TaskController::index');
+$routes->get('/creer', 'TaskController::create');
+$routes->get('/supprimer/(:num)','TaskController::delete/$1');
+$routes->post('/sauvegarder', 'TaskController::save');
 
 /*
  * --------------------------------------------------------------------
@@ -31,7 +35,7 @@ $routes->setAutoRoute(false);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'TaskController::index');
+
 
 /*
  * --------------------------------------------------------------------

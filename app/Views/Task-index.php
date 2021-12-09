@@ -26,11 +26,13 @@
                     <tr>
                         <th><?= esc($task->id) ?></th>
                         <td><?= esc($task->text) ?></td>
+                        <td><a href="<?='/supprimer/'.$task->id?>">Supprimer</a></td>
                     </tr>
                 <?php endforeach ?>
                 </tbody>
             </table>
         </div>
+        <a href="/creer">Ajouter</a>
     </div>
     </body>
 </html>

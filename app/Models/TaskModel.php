@@ -59,7 +59,7 @@ class TaskModel extends Model
     // Callbacks
     // Les Callbacks ne sont pas utilisés ici mais intéressant
     // Ce soint des points d'entrée pour placer des méthodes qui serond automatiquement appelées lorsque
-    // l'événement sur le modèle se produit
+    // l'événement sur le modèle se produit.
     protected $allowCallbacks = true;
     protected $beforeInsert   = [];
     protected $afterInsert    = [];
