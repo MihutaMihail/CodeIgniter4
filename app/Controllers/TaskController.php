@@ -62,11 +62,23 @@ class TaskController extends BaseController
 			$form_data = [
 				'text' => $this->request->getPost('text'),
 			];
+			//Si l'id n'est pas null on l'ajoute dans les données à transmettre
+			if (!is_null($id)){
+				$form_data['id'] = $id;
+			}
 			// Créer une instance de notre tâche
 			$task = new Task($form_data);
 			// Génère insert/update
 			$this->taskModel->save($task);
 			return redirect()->to('/')->with('message','Tâche sauvegardée');
 		}
+	}
+
+	public function edit(int $id){
+		$data['titre'] = "Modifier tâche";
+		// On récupère la tâche à modifier
+		$data['task'] = $this->taskModel->find($id);
+		// On appelle la vue
+		return view('Task-form.php',$data);
 	}
 }

@@ -26,6 +26,7 @@
                     <tr>
                         <th><?= esc($task->id) ?></th>
                         <td><?= esc($task->text) ?></td>
+                        <td><a href="<?='/modifier/'.$task->id?>">Modifier</a></td>
                         <td><a href="<?='/supprimer/'.$task->id?>">Supprimer</a></td>
                     </tr>
                 <?php endforeach ?>
