@@ -40,5 +40,30 @@ Dans **/Migrations** on peut créer une base qu'on va créer avec une fonction p
 Dans **/Seeds** on peut ajouter des données dans la base de données qu'on choisi.<br>
 ![seeder.JPG](./Images_Readme/seeder.JPG)
 
+# Composants logiciels à developper
 
+## 1. Gérer les tâches
+### Objectif 
+**•** L'objectif est d'être capable d'ajouter/modifier/supprimer un tâche. 
+### Cas Utilisation - Gérer les colocataires
+```plantuml
+@startuml model1
+scale 1
+skinparam nodesep 50
+left to right direction
+actor Colocataire as c
+package GerezLesColocataires{
+    usecase "Ajouter une tâche" as UC1
+    usecase "Modifier une tâche" as UC2
+    usecase "Supprimer une tâche" as UC3
+}
+c --> UC1
+c --> UC2
+c --> UC3
+@enduml
+```
+
+### Maquette - Gérer les tâches
+
+### Enchaînement Textuel - Gérer les tâches 
 
