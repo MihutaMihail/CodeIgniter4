@@ -24,10 +24,21 @@ Premièrement on va définir quel page on va configurer (ici c'est **/pizzas**).
 ![filter.JPG](./Images_Readme/filter.JPG) <br>
 On peut voir que une fois qu'une personne arrive sur la page **/admin**, on va vérifier avec **filter** si cette personne fait partie du groupe **admin**. S'il ne fait pas partie de ce groupe, son accès sera réfuser.
 
+### Fichier app/Controllers & Views
+Comme son nom l'indique, les **Controllers** vont nous permettre de contrôler ce que chaque URL du site web affiche. Comme on a vu avant, on dans les **Routes** on peut définir le contrôleur utiliser ainsi que sa fonction.<br>
+![controller.JPG](./Images_Readme/controller.JPG) <br>
+Un contrôleur est composé dans constructeur (**__construct**) ou on définir les données membres (si on veut importer un **Model** il faut le définir en dehours du contrôleur) <br>
+![import.JPG](./Images_Readme/import.JPG) <br>
+De plus, on peut aussi définir les fonctions qu'on veut que ce contrôler possède. On peut voir que la fonction **index** va récupérer quelques données avec **$data[]** et va afficher la page **Garniture-index.php**. Pour définir les paramêtres (dans ce cas on a **$idPizza**), il faut aller dans les **Views** et consulter la page qu'on veut afficher. <br>
+![parametre.JPG](./Images_Readme/parametre.JPG) <br>
+![routeParametre.JPG](./Images_Readme/routeParametre.JPG) <br>
+
 ### Fichier app/Database/Migrations & Seeds
 Ces 2 dossiers sont utiliser pour créer la base de données et insérer des données. Avec ça, on n'est plus obliger de aller dans mysql pour créer une table et l'alimenter avec des données. <br>
 Dans **/Migrations** on peut créer une base qu'on va créer avec une fonction proposé par **spark**. Ceci est un outil qui propose de nombreuses fonctions. <br>
 ![migration.JPG](./Images_Readme/migration.JPG) <br>
 Dans **/Seeds** on peut ajouter des données dans la base de données qu'on choisi.<br>
 ![seeder.JPG](./Images_Readme/seeder.JPG)
+
+
 
