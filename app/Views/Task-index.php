@@ -1,3 +1,5 @@
+<?= $this->extend('page.php') ?>
+<?= $this->section('body') ?>
 <?php  
     use CodeIgniter\View\View;
 ?>
@@ -37,3 +39,4 @@
     </div>
     </body>
 </html>
+<?= $this->endSection() ?>

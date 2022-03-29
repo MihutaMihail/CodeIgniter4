@@ -65,9 +65,7 @@ class TaskController extends BaseController
 
 	public function edit(int $id){
 		$data['titre'] = "Modifier tâche";
-		// On récupère la tâche à modifier
 		$data['task'] = $this->taskModel->find($id);
-		// On appelle la vue
 		return view('Task-form.php',$data);
 	}
 }
