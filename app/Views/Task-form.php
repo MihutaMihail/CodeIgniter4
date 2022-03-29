@@ -17,7 +17,7 @@ $errors = session()->getFlashdata('errors');
         </div>
         <?= \Config\Services::validation()->listErrors() ?>
         <div>
-            <form action="<?= (isset($task) ? '/sauvegarder/{$task->id}' : '/sauvegarder') ?>" method="post">
+            <form action="<?= (isset($task) ? '/sauvegarder/' .$task->id : '/sauvegarder') ?>" method="post">
                 <div>
                     <label>Text :</label>
                     <input type="text" name="text" id="text" value="<?= old('text', $task->text ?? '', false) ?>" >
