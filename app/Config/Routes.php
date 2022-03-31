@@ -28,6 +28,7 @@ $routes->get('/supprimer/(:num)','TaskController::delete/$1');
 $routes->post('/sauvegarder', 'TaskController::save');
 $routes->get('/modifier/(:num)','TaskController::edit/$1');
 $routes->post('/sauvegarder/(:num)','TaskController::save/$1');
+$routes->get('/done/(:num)','TaskController::done/$1');
 
 /*
  * --------------------------------------------------------------------

@@ -68,4 +68,11 @@ class TaskController extends BaseController
 		$data['task'] = $this->taskModel->find($id);
 		return view('Task-form.php',$data);
 	}
+
+	public function done(int $id){
+		$this->taskModel->update($id,['done' => '1']);
+		return redirect()->to('/')->with('message','Tâche faite');
+	}
 }
+
+
