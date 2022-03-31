@@ -21,9 +21,10 @@ class TaskController extends BaseController
 	}
 
     public function index() {
-	   $tasks = $this->taskModel->orderBy('order')->findAll();
+	   $tasks = $this->taskModel->orderBy('order')->paginate();
 	   $data['tasks'] = $tasks;
 	   $data['titre'] = "Au boulout";
+	   $data['pager'] = $this->taskModel->pager;
 	   return view('Task-index.php',$data);
 	}
 

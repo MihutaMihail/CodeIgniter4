@@ -35,6 +35,7 @@
                 <?php endforeach ?>
             </tbody>
         </table>
+        <?= $pager->links('default','bootstrapPager') ?>
     </div>
     <div class="card-footer">
         <div class="col-12">
