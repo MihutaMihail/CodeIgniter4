@@ -19,6 +19,9 @@ class Filters extends BaseConfig
         'csrf'     => CSRF::class,
         'toolbar'  => DebugToolbar::class,
         'honeypot' => Honeypot::class,
+        'login'    => \Myth\Auth\Filters\LoginFilter::class,
+        'role'     => \Myth\Auth\Filter\RoleFilter::class,
+        'permission' => \Myth\Auth\Filter\PermissionFilter::class,
     ];
 
     /**
