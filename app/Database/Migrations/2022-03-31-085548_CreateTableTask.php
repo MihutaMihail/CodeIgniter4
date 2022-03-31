@@ -24,6 +24,10 @@ class CreateTableTask extends Migration
                 'type'           => 'TINYINT',
                 'constraint'     => '1',
             ],
+            'order' => [
+                'type'           => 'BIGINT',
+                'constraint'     => '11',
+            ],
         ]);
         $this->forge->addKey('id',true);
         $this->forge->createTable('task');

@@ -11,7 +11,7 @@ use App\Entities\Task;
 
 class TaskController extends BaseController
 {
-	    public function __construct() {
+	public function __construct() {
 		// On place dans le constructeur toutes les classes nécessaires lors de l'aappel des différentes
 		// méthodes. Attention au double underscore de construct(). Les helpers sont des bibliothèques de
 		// classes det de fonctions que l'on va utiliser lors du développement. On les charges dans le constructeur
@@ -21,10 +21,9 @@ class TaskController extends BaseController
 	}
 
     public function index() {
-	   $taskModel = new TaskModel();
-	   $tasks = $taskModel->orderBy('id')->findAll();
+	   $tasks = $this->taskModel->orderBy('order')->findAll();
 	   $data['tasks'] = $tasks;
-	   $data['titre'] = "au boulot";
+	   $data['titre'] = "Au boulout";
 	   return view('Task-index.php',$data);
 	}
 
@@ -50,6 +49,7 @@ class TaskController extends BaseController
 			// On récupère les donnes du formulaire
 			$form_data = [
 				'text' => $this->request->getPost('text'),
+				'order' => $this->request->getPost('order'),
 			];
 			//Si l'id n'est pas null on l'ajoute dans les données à transmettre
 			if (!is_null($id)){
@@ -72,6 +72,41 @@ class TaskController extends BaseController
 	public function done(int $id){
 		$this->taskModel->update($id,['done' => '1']);
 		return redirect()->to('/')->with('message','Tâche faite');
+	}
+
+	public function indexReorder(){
+		$tasks = $this->taskModel->orderBy('order')->findAll();
+		$index = 10;
+		// on renumérote l'ordre de toutes les tâches
+		foreach($tasks as $task){
+			$task->order=$index;
+			$index+=10;
+		}
+		$data['tasks'] = $tasks;
+		$data['titre'] = "Réordonner les tâches";
+		return view('Reorder-index.php', $data);
+	}
+
+	public function saveReorder(){
+		$validation = \Config\Services::validation();
+		$validation->setRule('order.*','ordre','required|numeric');
+		if (!$validation->withRequest($this->request)->run()){
+			return redirect()->back()->withInput()->with('errors',$validation->getErrors());
+		} else {
+			$orders = $this->request->getPost('order[]');
+			$ids = $this->request->getPost('id[]');
+			$index = 0;
+			foreach($ids as $id){
+				$form_data = [
+					'order' => $orders[$index],
+					'id' 	=> $ids[$index],
+				];
+				$task = new Task($form_data);
+				$this->taskModel->save($task);
+				$index++;
+			}
+			return redirect()->to('/')->with('message', "Tâches réorganisées");
+		}
 	}
 }
 

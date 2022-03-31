@@ -34,7 +34,7 @@ class TaskModel extends Model
     // Indispensable sans préciser quels sont les champs autorisés vous ne pourrez pas mettre à jour
     // la base de données, id qui est autoincrémenté n'est pas concerné car il est géré directement par 
     // la base de donnée et non votre programme
-    protected $allowedFields    = ['text','done'];
+    protected $allowedFields    = ['text','done','order'];
 
     // Dates
     // Pas utilisés ici mais permet de générer et de gérér automatiquement pour chaque occurence de la base
@@ -50,6 +50,7 @@ class TaskModel extends Model
     // : voir la liste des mots clés : https://codeigniter.com/user_guide/libraries/validation.html
     protected $validationRules      = [
         'text' => 'required|string|max_length[10]',
+        'order' => 'required|numeric',
     ];
 
     protected $validationMessages   = [];

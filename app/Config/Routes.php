@@ -22,6 +22,8 @@ $routes->setDefaultMethod('index');
 $routes->setTranslateURIDashes(false);
 $routes->set404Override();
 $routes->setAutoRoute(false);
+
+
 $routes->get('/', 'TaskController::index');
 $routes->get('/creer', 'TaskController::create');
 $routes->get('/supprimer/(:num)','TaskController::delete/$1');
@@ -29,6 +31,9 @@ $routes->post('/sauvegarder', 'TaskController::save');
 $routes->get('/modifier/(:num)','TaskController::edit/$1');
 $routes->post('/sauvegarder/(:num)','TaskController::save/$1');
 $routes->get('/done/(:num)','TaskController::done/$1');
+$routes->get('/reorder','TaskController::indexReorder');
+$routes->post('/reorder/save','TaskController::saveReorder');
+
 
 /*
  * --------------------------------------------------------------------
