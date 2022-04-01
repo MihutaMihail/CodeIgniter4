@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="fr">
-
+<?= helper('auth') ?>
 <head>
     <title><?= $titre ?></title>
     <!-- Required meta tags -->
@@ -13,6 +13,7 @@
     <script src="https://kit.fontawesome.com/ca399f254d.js" crossorigin="anonymous"></script>
 </head>
 <body>
+    <?= $this->include('navbar.php') ?>
     <div class="container">
         <div>
             <nav class="navbar navbar-dark"></nav>
@@ -30,3 +31,8 @@
 </body>
 
 </html>
+<style>
+    .my-navbar {
+        padding-top : 60px;
+    }
+</style>
