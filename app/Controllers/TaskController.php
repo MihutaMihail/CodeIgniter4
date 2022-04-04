@@ -28,6 +28,14 @@ class TaskController extends BaseController
 	   return view('Task-index.php',$data);
 	}
 
+	public function indexUser(int $userId) {
+		$tasks = $this->taskModel->where(['user_id' => $userId])->orderBy('order')->paginate();
+		$data['tasks'] = $tasks;
+		$data['titre'] = "Au boulout";
+		$data['pager'] = $this->taskModel->pager;
+		return view('Task-index.php',$data);
+	 }
+
 	public function create() {
 		$data['titre'] = 'Nouvelle Tâche';
 		return view('Task-form.php',$data);
@@ -51,6 +59,7 @@ class TaskController extends BaseController
 			$form_data = [
 				'text' => $this->request->getPost('text'),
 				'order' => $this->request->getPost('order'),
+				'user_id' => $this->request->getPost('user_id'),
 			];
 			//Si l'id n'est pas null on l'ajoute dans les données à transmettre
 			if (!is_null($id)){

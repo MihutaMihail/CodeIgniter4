@@ -25,6 +25,7 @@ $routes->setAutoRoute(false);
 
 
 $routes->get('/', 'TaskController::index');
+$routes->get('/test/(:num)', 'TaskController::indexUser/$1');
 $routes->get('/creer', 'TaskController::create');
 $routes->get('/supprimer/(:num)','TaskController::delete/$1');
 $routes->post('/sauvegarder', 'TaskController::save');

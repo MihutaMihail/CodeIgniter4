@@ -1,5 +1,6 @@
 <?= $this->extend('page.php') ?>
 <?= $this->section('body') ?>
+<?= helper('auth') ?>
 <?php
 // On récupère les messages d'erreurs pour les afficher
 $errors = session()->getFlashdata('errors');
@@ -15,9 +16,12 @@ $errors = session()->getFlashdata('errors');
                 <div class="form-group">
                     <form-label for="text">Text :</form-label>
                     <input type="text" name="text" id="text" value="<?= old('text', $task->text ?? '') ?>" >
-                    <br>
+                    <!----------------------------------------------------------------------------------------->
                     <form-label for="order">Ordre :</form-label>
                     <input type="text" name="order" id="order" value="<?= old('order', $task->order ?? '') ?>" >
+                    <!----------------------------------------------------------------------------------------->
+                    <form-label for="user_id"></form-label>
+                    <input type="text" name="user_id" id="user_id" value="<?= user()->id ?>" >
                 </div>
                 <button class="btn btn-primary" type="submit"><?= (isset($task) ? "Modifier" : "Ajouter" ) ?>
                     <?php if ((!isset($task))) : ?>

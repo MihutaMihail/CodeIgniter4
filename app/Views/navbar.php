@@ -25,6 +25,7 @@
                         <a class="dropdown-item" href="/account"><i class="fas fa-cog mr-2"></i>Mon compte</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="/logout"><i class="fa fa-sign-out mr-2"></i>Déconnexion</a>
+                        <a class="dropdown-item" href="<?= '/test/'.user()->id ?>"><i class="fa fa-sign-out mr-2"></i>test</a>
                     </div>
                     </li>
                 <?php else : ?>
