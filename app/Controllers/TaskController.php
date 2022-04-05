@@ -20,12 +20,9 @@ class TaskController extends BaseController
 		$this->taskModel = new TaskModel();
 	}
 
-    public function index() {
-	   $tasks = $this->taskModel->orderBy('order')->paginate();
-	   $data['tasks'] = $tasks;
-	   $data['titre'] = "Au boulout";
-	   $data['pager'] = $this->taskModel->pager;
-	   return view('Task-index.php',$data);
+    public function indexVisiteur() {
+	   $data['titre'] = "Accueil";
+	   return view('Accueil-index.php',$data);
 	}
 
 	public function indexUser(int $userId) {

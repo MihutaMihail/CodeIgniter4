@@ -24,8 +24,10 @@ $routes->set404Override();
 $routes->setAutoRoute(false);
 
 
-$routes->get('/', 'TaskController::index');
+$routes->get('/', 'TaskController::indexVisiteur');
+//test
 $routes->get('/test/(:num)', 'TaskController::indexUser/$1');
+//test
 $routes->get('/creer', 'TaskController::create');
 $routes->get('/supprimer/(:num)','TaskController::delete/$1');
 $routes->post('/sauvegarder', 'TaskController::save');
