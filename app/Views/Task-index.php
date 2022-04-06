@@ -6,7 +6,7 @@
 ?>
 <div class="card">
     <div class="card-header">
-        Les tâches
+        Vos tâches
     </div>
     <div class="card-body">
         <table class="table table-hover table-striped">
@@ -40,7 +40,7 @@
     <div class="card-footer">
         <div class="col-12">
             <a class="btn btn-primary" href="/creer"><i class="fas fa-plus"></i></a>
-            <a class="btn btn-secondary active" href="/reorder" role="button">
+            <a class="btn btn-secondary active" href="<?= '/reorder/' . user()->id ?>" role="button">
                 <i class="fa fa-sort-numeric-asc" aria-hidden="true"> Réordonner</i>
             </a>
         </div>

@@ -6,9 +6,14 @@
         </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="/">Accueil</a>
             </li>
+            <?php if(logged_in() == true) : ?>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?= '/taches/' . user()->id ?>">Liste des tâches</a>
+                </li>
+            <?php endif ?>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
                     <i class="fas fa-user"></i>
@@ -22,7 +27,6 @@
                         <a class="dropdown-item" href="/account"><i class="fas fa-cog mr-2"></i>Mon compte</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="/logout"><i class="fa fa-sign-out mr-2"></i>Déconnexion</a>
-                        <a class="dropdown-item" href="<?= '/test/'.user()->id ?>"><i class="fa fa-sign-out mr-2"></i>test</a>
                     </div>
                     </li>
                 <?php else : ?>

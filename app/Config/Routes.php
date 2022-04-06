@@ -25,17 +25,19 @@ $routes->setAutoRoute(false);
 
 
 $routes->get('/', 'TaskController::indexVisiteur');
-//test
-$routes->get('/test/(:num)', 'TaskController::indexUser/$1');
-//test
-$routes->get('/creer', 'TaskController::create');
-$routes->get('/supprimer/(:num)','TaskController::delete/$1');
-$routes->post('/sauvegarder', 'TaskController::save');
-$routes->get('/modifier/(:num)','TaskController::edit/$1');
-$routes->post('/sauvegarder/(:num)','TaskController::save/$1');
-$routes->get('/done/(:num)','TaskController::done/$1');
-$routes->get('/reorder','TaskController::indexReorder');
-$routes->post('/reorder/save','TaskController::saveReorder');
+$routes->group('',['filter' => 'login'], function ($routes) {
+    $routes->get('/taches/(:num)','TaskController::indexUser/$1');
+    $routes->get('/creer', 'TaskController::create');
+    $routes->get('/supprimer/(:num)','TaskController::delete/$1');
+    $routes->post('/sauvegarder', 'TaskController::save');
+    $routes->get('/modifier/(:num)','TaskController::edit/$1');
+    $routes->post('/sauvegarder/(:num)','TaskController::save/$1');
+    $routes->get('/done/(:num)','TaskController::done/$1');
+    $routes->get('/reorder/(:num)','TaskController::indexReorder/$1');
+    $routes->post('/reorder/save','TaskController::saveReorder');
+    $routes->get('/account','TaskController::editAccount');
+});
+
 
 
 /*

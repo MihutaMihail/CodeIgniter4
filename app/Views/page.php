@@ -14,6 +14,7 @@
 </head>
 <body>
     <?= $this->include('navbar.php') ?>
+    <?= $this->include('_errorsMessages.php') ?>
     <div class="container">
         <div>
             <nav class="navbar navbar-dark"></nav>

@@ -35,12 +35,13 @@ class TaskController extends BaseController
 
 	public function create() {
 		$data['titre'] = 'Nouvelle Tâche';
+		$data['message'] = "Nouvelle tâche ajoutée";
 		return view('Task-form.php',$data);
 	}
 
 	public function delete(int $id) {
 		$this->taskModel->where(['id'=> $id])->delete();
-		return redirect()->to('/')->with('message','Tâche supprimée');
+		return redirect()->to('/taches/' . user()->id)->with('message','Tâche supprimée');
 	}
 
 	// La méthode prévoir de reçevoir l'id mais par défaut elle ne reçevra aucun paramère
@@ -66,23 +67,29 @@ class TaskController extends BaseController
 			$task = new Task($form_data);
 			// Génère insert/update
 			$this->taskModel->save($task);
-			return redirect()->to('/')->with('message','Tâche sauvegardée');
+			return redirect()->to('/taches/' . user()->id)->with('message','Tâche sauvegardée');
 		}
 	}
 
 	public function edit(int $id){
 		$data['titre'] = "Modifier tâche";
+		$data['message'] = "Tâche modifiée";
 		$data['task'] = $this->taskModel->find($id);
 		return view('Task-form.php',$data);
 	}
 
-	public function done(int $id){
-		$this->taskModel->update($id,['done' => '1']);
-		return redirect()->to('/')->with('message','Tâche faite');
+	public function editAccount(){
+		$data['titre'] = "Modifier vos identifiants";
+		return view('account.php',$data);
 	}
 
-	public function indexReorder(){
-		$tasks = $this->taskModel->orderBy('order')->findAll();
+	public function done(int $id){
+		$this->taskModel->update($id,['done' => '1']);
+		return redirect()->to('/taches/' . user()->id)->with('message','Tâche faite');
+	}
+
+	public function indexReorder(int $userId){
+		$tasks = $this->taskModel->where(['user_id' => $userId])->orderBy('order')->findAll();
 		$index = 10;
 		// on renumérote l'ordre de toutes les tâches
 		foreach($tasks as $task){
