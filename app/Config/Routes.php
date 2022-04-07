@@ -26,6 +26,8 @@ $routes->setAutoRoute(false);
 
 $routes->get('/', 'TaskController::index');
 $routes->group('',['filter' => 'login'], function ($routes) {
+    // Il faut encore développer
+    $routes->get('/taches','TaskController::indexAdmin',['filter' => 'role:admin']);
     $routes->get('/taches/(:num)','TaskController::tasksUser/$1');
     $routes->get('/creer', 'TaskController::create');
     $routes->get('/supprimer/(:num)','TaskController::delete/$1');

@@ -27,6 +27,14 @@ class TaskController extends BaseController
 	   return view('Accueil-index.php',$data);
 	}
 
+	// Il faut encore développer
+	public function indexAdmin() {
+		$data['titre'] = "Tâches";
+		$data['tasks']= $this->taskModel->orderBy('order')->paginate();
+		$data['pager'] = $this->taskModel->pager;
+		return view('Task-index.php',$data);
+	 }
+
 	public function tasksUser(int $userId) {
 		if (user()->id == $userId) {
 			$tasks = $this->taskModel->where(['user_id' => $userId])->orderBy('order')->paginate();
