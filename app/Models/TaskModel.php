@@ -49,7 +49,7 @@ class TaskModel extends Model
     // Important permet de définir des règles simples de validation des données pour la saisie utilisateur
     // : voir la liste des mots clés : https://codeigniter.com/user_guide/libraries/validation.html
     protected $validationRules      = [
-        'text' => 'required|string|max_length[10]',
+        'text' => 'required|string|max_length[100]',
         'order' => 'required|numeric',
     ];
 

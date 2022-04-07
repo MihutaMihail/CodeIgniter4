@@ -14,14 +14,14 @@ $errors = session()->getFlashdata('errors');
             <?= ((session()->has('errors')) ? \Config\Services::validation()->listErrors() : '' ) ?>
             <form class="form-horizontal" action="<?= (isset($task) ? '/sauvegarder/' .$task->id : '/sauvegarder') ?>" method="post">
                 <div class="form-group">
-                    <form-label for="text">Text :</form-label>
-                    <input type="text" name="text" id="text" value="<?= old('text', $task->text ?? '') ?>" >
+                    <form-label for="text">Text</form-label>
+                    <input class="form-control" type="text" name="text" id="text" value="<?= old('text', $task->text ?? '') ?>" >
                     <!----------------------------------------------------------------------------------------->
-                    <form-label for="order">Ordre :</form-label>
-                    <input type="text" name="order" id="order" value="<?= old('order', $task->order ?? '') ?>" >
+                    <form-label for="order">Ordre</form-label>
+                    <input class="form-control" type="text" name="order" id="order" value="<?= old('order', $task->order ?? '') ?>" >
                     <!----------------------------------------------------------------------------------------->
                     <form-label for="user_id"></form-label>
-                    <input type="text" name="user_id" id="user_id" value="<?= user()->id ?>" >
+                    <input type="hidden" name="user_id" id="user_id" value="<?= user()->id ?>" >
                 </div>
                 <button class="btn btn-primary" type="submit"><?= (isset($task) ? "Modifier" : "Ajouter" ) ?>
                     <?php if ((!isset($task))) : ?>

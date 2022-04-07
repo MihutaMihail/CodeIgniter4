@@ -36,6 +36,9 @@ $routes->group('',['filter' => 'login'], function ($routes) {
     $routes->get('/reorder/(:num)','TaskController::indexReorder/$1');
     $routes->post('/reorder/save','TaskController::saveReorder');
     $routes->get('/account','TaskController::editAccount');
+    $routes->post('/confirmationMail','TaskController::modificationMail');
+    $routes->post('/confirmationUsername','TaskController::modificationUsername');
+    $routes->post('/confirmationPassword','TaskController::modificationPassword');
 });
 
 

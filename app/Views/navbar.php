@@ -20,12 +20,13 @@
                 </a>
                 <?php if(logged_in() == true) : ?>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href=""><i class="fas fa-user-circle mr-2"></i><?= user()->username ?></a>
                         <a class="dropdown-item" href=""><i class="fa fa-envelope mr-2" aria-hidden="true"></i><?= user()->email ?></a>
                         <?php if(in_groups('admin')) : ?>
                         <a class="dropdown-item" href=""></i>Mode Admin</a>
                         <?php endif ?>
-                        <a class="dropdown-item" href="/account"><i class="fas fa-cog mr-2"></i>Mon compte</a>
                         <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="/account"><i class="fas fa-cog mr-2"></i>Modification compte</a>
                         <a class="dropdown-item" href="/logout"><i class="fa fa-sign-out mr-2"></i>Déconnexion</a>
                     </div>
                     </li>
