@@ -22,6 +22,9 @@ $errors = session()->getFlashdata('errors');
                     <!----------------------------------------------------------------------------------------->
                     <form-label for="user_id"></form-label>
                     <input type="hidden" name="user_id" id="user_id" value="<?= user()->id ?>" >
+                    <!----------------------------------------------------------------------------------------->
+                    <form-label for="created_at"></form-label>
+                    <input type="hidden" name="created_at" id="created_at" value="<?= date('Y-m-d H:i:s') ?>" >
                 </div>
                 <button class="btn btn-primary" type="submit"><?= (isset($task) ? "Modifier" : "Ajouter" ) ?>
                     <?php if ((!isset($task))) : ?>

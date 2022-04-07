@@ -28,9 +28,17 @@ class CreateTableTask extends Migration
                 'type'           => 'BIGINT',
                 'constraint'     => '11',
             ],
+            'created_at' => [
+                'type'          => 'DATETIME',  
+                'null'          => true,  
+            ],
+            'done_at' => [
+                'type'          => 'DATETIME',    
+                'null'          => true,
+            ],
             'user_id'   => [
-                'type'          => 'int', 
-                'constraint'    => 11, 
+                'type'          => 'INT', 
+                'constraint'    => '11', 
                 'unsigned'      => true,
             ],
         ]);

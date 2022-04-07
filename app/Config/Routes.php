@@ -24,21 +24,21 @@ $routes->set404Override();
 $routes->setAutoRoute(false);
 
 
-$routes->get('/', 'TaskController::indexVisiteur');
+$routes->get('/', 'TaskController::index');
 $routes->group('',['filter' => 'login'], function ($routes) {
-    $routes->get('/taches/(:num)','TaskController::indexUser/$1');
+    $routes->get('/taches/(:num)','TaskController::tasksUser/$1');
     $routes->get('/creer', 'TaskController::create');
     $routes->get('/supprimer/(:num)','TaskController::delete/$1');
     $routes->post('/sauvegarder', 'TaskController::save');
-    $routes->get('/modifier/(:num)','TaskController::edit/$1');
+    $routes->get('/modifier/(:num)','TaskController::editTask/$1');
     $routes->post('/sauvegarder/(:num)','TaskController::save/$1');
     $routes->get('/done/(:num)','TaskController::done/$1');
     $routes->get('/reorder/(:num)','TaskController::indexReorder/$1');
     $routes->post('/reorder/save','TaskController::saveReorder');
     $routes->get('/account','TaskController::editAccount');
-    $routes->post('/confirmationMail','TaskController::modificationMail');
-    $routes->post('/confirmationUsername','TaskController::modificationUsername');
-    $routes->post('/confirmationPassword','TaskController::modificationPassword');
+    $routes->post('/confirmationMail','AccountController::modificationMail');
+    $routes->post('/confirmationUsername','AccountController::modificationUsername');
+    $routes->post('/confirmationPassword','AccountController::modificationPassword');
 });
 
 

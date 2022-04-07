@@ -14,6 +14,8 @@
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">Tâche</th>
+                    <th scope="col">Création tâche</th>
+                    <th scope="col">Tâche effectué</th>
                     <th scope="col">Action</th>
                 </tr>
             </thead>
@@ -26,6 +28,15 @@
                         <?php else : ?>
                             <td><?=  esc($task->text) ?></td>
                         <?php endif ?>
+                        <!------------------------------------------------------------------------->
+                        <td><?= date("m-d-Y H:i:s", strtotime($task->created_at)) ?></td>
+                        <!------------------------------------------------------------------------->
+                        <?php if ($task->done) : ?>
+                            <td><?= date("m-d-Y H:i:s", strtotime($task->done_at)) ?></td>
+                        <?php else : ?>
+                            <td>Tâche non effectué</td>
+                        <?php endif ?>
+                        <!------------------------------------------------------------------------->
                         <td>
                             <a class="btn btn-primary" role="button" href="<?='/modifier/'.$task->id?>"><i class="fas fa-edit"></i></a>
                             <a class="btn btn-danger" role="button" href="<?='/supprimer/'.$task->id?>"><i class="fas fa-trash-alt"></i></a>
