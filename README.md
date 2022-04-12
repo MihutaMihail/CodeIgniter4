@@ -2,6 +2,29 @@
 
 CodeIgniter est un framework écrit en PHP open source créer par EllisLab (une société de logiciels américaine) sortie en février 2006. Son principal objectif est de permettre aux développeurs de créer des site web plus facilement et plus rapide. En ce moment, on travaille avec la version 4 du CodeIgniter.
 
+# Préparer l'environnement
+Afin que le site web fonctionnne correctement, il y a quelques chose à préparer <br>
+### .env & création base de données
+Premièrement, il faut configurer le fichier **.env** puisqu'il n'est pas mis sur ce dépôt pour des raisons de sécurité. Voici la configuration nécessaire : <br>
+![environnement.JPG](./Images_Readme/environnement.JPG) <br>
+![bdd.JPG](./Images_Readme/bdd.JPG) <br>
+Dans mon cas, ma base de données est appeller **dbTodo**. 
+Maintenant qu'on a dit quel base de données CodeIgniter doit utiliser, il faut la créer. On y va dans le terminal et on saisie `` $ mysql -u root -p 
+`` pour se connecter (il faut saisir le mot de passe). <br>
+Ensuite, on saisie ``$ create database <nom_base_de_données>`` (sans les < >) pour créer la base de données.
+### Migration
+Pour faire les migrations, on saisie dans le terminal ``$ php spark migrate --all`` pour les exécuter et donc créer les tables nécessaires dans la base de données (ici on a les tables du *myth/auth* et la table *task*) <br>
+### Seeder
+Pour ne pas créer les utilisateurs, groupes, tâches, etc, j'ai créer 3 seeders pour que toutes ces choses sont créer automatiquement. Les seeders doivent être exécuter dans un certain ordre sinon ça fonctionne pas. Voici l'ordre : <br>
+1) UsersAdmin (création d'un admin et de 2 utilisateurs) <br>
+2) UsersGroups (création d'un groupe admin et d'un groupe utilisateur + association d'un utilisateur dans un groupe) <br>
+3) CreateTableTask (création des tâches pour les 2 utilisateurs) <br>
+
+Pour exécuter un seeder on saisie ``$ php spark db:seed nom_seeder``
+### Attention
+**Les seeders ne vont pas fonctionner si vous avez créer déjà un groupe,utilisateur,etc. Comme les *id* sont en auto_increment, si vous avez créer un groupe,etc, le prochain *id* sera 2 et pas 1. Les seeders ont été créer avec l'idée qu'il a eu aucune modification sur la base de données. Dans le cas où 1 groupe/utilisateur a été créer, pour ne pas recréer une autre base de données, on peut saisir ``alter table nom_table auto_increment = 0;`` pour que le auto_increment recommencera à 0**.<br>
+
+
 # La structure du CodeIgniter
 CodeIgniter utilise une structur qui s'appelle **Model View Controller (MVC)**. Le principe est de séparer le code de programme et le code de présentation. <br>
 <br>
