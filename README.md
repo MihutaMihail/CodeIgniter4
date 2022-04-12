@@ -16,8 +16,8 @@ Ensuite, on saisie ``$ create database <nom_base_de_données>`` (sans les < >) p
 Pour faire les migrations, on saisie dans le terminal ``$ php spark migrate --all`` pour les exécuter et donc créer les tables nécessaires dans la base de données (ici on a les tables du *myth/auth* et la table *task*) <br>
 ### Seeder
 Pour ne pas créer les utilisateurs, groupes, tâches, etc, j'ai créer 3 seeders pour que toutes ces choses sont créer automatiquement. Les seeders doivent être exécuter dans un certain ordre sinon ça fonctionne pas. Voici l'ordre : <br>
-1) UsersAdmin (création d'un admin et de 2 utilisateurs) <br>
-2) UsersGroups (création d'un groupe admin et d'un groupe utilisateur + association d'un utilisateur dans un groupe) <br>
+1) AdminUserSeeder (création d'un admin et de 2 utilisateurs) <br>
+2) GroupUser (création d'un groupe admin et d'un groupe utilisateur + association d'un utilisateur dans un groupe) <br>
 3) TaskSeeder (création des tâches pour les 2 utilisateurs) <br>
 
 Pour exécuter un seeder on saisie ``$ php spark db:seed nom_seeder``
