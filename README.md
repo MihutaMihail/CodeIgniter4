@@ -90,3 +90,18 @@ c --> UC3
 
 ### Enchaînement Textuel - Gérer les tâches 
 
+
+
+cas utilisations à faire
+1)   gérer les tâches (visualiser, ajouter, modifier, supprimer, finir une tâche)   <br>
+2)   réordonnancement (modifier l'ordre d'une tâche, afficher le nouveau ordre)   <br>
+3)   connexion (créer un compte => include vérification mail, se connecter, mot de passe oublié )   <br>
+4)   adminitration (visualer toutes les tâches, modifier toutes les tâches, supprimer toutes les tâches)   <br>
+
+
+montre le diagramme de classe → codeigniter4_authmyth + table task
+
+
+
+
+
