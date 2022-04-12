@@ -21,7 +21,7 @@ $errors = session()->getFlashdata('errors');
                     <input class="form-control" type="text" name="order" id="order" value="<?= old('order', $task->order ?? '') ?>" >
                     <!----------------------------------------------------------------------------------------->
                     <form-label for="user_id"></form-label>
-                    <input type="hidden" name="user_id" id="user_id" value="<?= user()->id ?>" >
+                    <input type="hidden" name="user_id" id="user_id" value="<?= in_groups('Admin') ? old('user_id', $task->user_id ?? '') : user()->id ?>" >
                     <!----------------------------------------------------------------------------------------->
                     <form-label for="created_at"></form-label>
                     <input type="hidden" name="created_at" id="created_at" value="<?= date('Y-m-d H:i:s') ?>" >

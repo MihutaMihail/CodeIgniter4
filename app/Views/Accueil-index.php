@@ -5,7 +5,7 @@
     body {
         background-image: url('/images/background.jpg');
         height:auto;
-        background-repeat : no-repeat
+        background-repeat : no-repeat;
     }
     h1 {
         left: 0;
@@ -19,5 +19,9 @@
         text-shadow: 2px 1px 1px #ffffff;
  }
 </style>
-   <a href="<?= isset(user()->id) ? '/taches/' . user()->id : '/login' ?>"><h1>Cliquer ici pour créer vos tâches<h1></a>
+    <?php if (in_groups('Admin')) : ?>
+        <a href="/taches"><h1>Voir toutes les tâches des utilisateurs<h1></a>
+    <?php else : ?>
+        <a href="<?= isset(user()->id) ? '/taches/' . user()->id : '/login' ?>"><h1>Cliquer ici pour créer vos tâches<h1></a>
+    <?php endif ?>
 <?= $this->endSection() ?>

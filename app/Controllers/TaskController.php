@@ -27,12 +27,12 @@ class TaskController extends BaseController
 	   return view('Accueil-index.php',$data);
 	}
 
-	// Il faut encore développer
 	public function indexAdmin() {
 		$data['titre'] = "Tâches";
-		$data['tasks']= $this->taskModel->orderBy('order')->paginate();
+		$data['tasks'] = $this->taskModel->orderBy('user_id')->paginate();
+		$data['users'] = $this->userModel->findAll();
 		$data['pager'] = $this->taskModel->pager;
-		return view('Task-index.php',$data);
+		return view('Task-Admin.php',$data);
 	 }
 
 	public function tasksUser(int $userId) {
@@ -55,7 +55,11 @@ class TaskController extends BaseController
 
 	public function delete(int $id) {
 		$this->taskModel->where(['id'=> $id])->delete();
-		return redirect()->to('/taches/' . user()->id)->with('message','Tâche supprimée');
+		if (in_groups('Admin')) {
+			return redirect()->to('/taches')->with('message','Tâche supprimée');
+		} else {
+			return redirect()->to('/taches/' . user()->id)->with('message','Tâche supprimée');
+		}
 	}
 
 	// La méthode prévoir de reçevoir l'id mais par défaut elle ne reçevra aucun paramère
@@ -76,7 +80,11 @@ class TaskController extends BaseController
 			}
 			$task = new Task($form_data);
 			$this->taskModel->save($task);
-			return redirect()->to('/taches/' . user()->id)->with('message','Tâche sauvegardée');
+			if (in_groups('Admin')) {
+				return redirect()->to('/taches')->with('message','Tâche sauvegardée');
+			} else {
+				return redirect()->to('/taches/' . user()->id)->with('message','Tâche sauvegardée');
+			}
 		}
 	}
 

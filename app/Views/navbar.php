@@ -10,9 +10,15 @@
                 <a class="nav-link" href="/">Accueil</a>
             </li>
             <?php if(logged_in() == true) : ?>
-                <li class="nav-item">
-                    <a class="nav-link" href="<?= '/taches/' . user()->id ?>">Liste des tâches</a>
-                </li>
+                <?php if(in_groups('Admin')) : ?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<?= '/taches' ?>">Liste des tâches - ADMIN</a>
+                    </li>
+                <?php else : ?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<?= '/taches/' . user()->id ?>">Liste des tâches</a>
+                    </li>
+                <?php endif ?>
             <?php endif ?>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
