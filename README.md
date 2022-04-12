@@ -5,7 +5,7 @@ CodeIgniter est un framework écrit en PHP open source créer par EllisLab (une 
 # Préparer l'environnement
 Afin que le site web fonctionnne correctement, il y a quelques chose à préparer <br>
 ### .env & création base de données
-Premièrement, il faut configurer le fichier **.env** puisqu'il n'est pas mis sur ce dépôt pour des raisons de sécurité. Voici la configuration nécessaire : <br>
+Premièrement, il faut configurer le fichier **.env** puisqu'il n'est pas mis sur ce dépôt. Voici la configuration nécessaire : <br>
 ![environnement.JPG](./Images_Readme/environnement.JPG) <br>
 ![bdd.JPG](./Images_Readme/bdd.JPG) <br>
 Dans mon cas, ma base de données est appeller **dbTodo**. 
@@ -18,7 +18,7 @@ Pour faire les migrations, on saisie dans le terminal ``$ php spark migrate --al
 Pour ne pas créer les utilisateurs, groupes, tâches, etc, j'ai créer 3 seeders pour que toutes ces choses sont créer automatiquement. Les seeders doivent être exécuter dans un certain ordre sinon ça fonctionne pas. Voici l'ordre : <br>
 1) UsersAdmin (création d'un admin et de 2 utilisateurs) <br>
 2) UsersGroups (création d'un groupe admin et d'un groupe utilisateur + association d'un utilisateur dans un groupe) <br>
-3) CreateTableTask (création des tâches pour les 2 utilisateurs) <br>
+3) TaskSeeder (création des tâches pour les 2 utilisateurs) <br>
 
 Pour exécuter un seeder on saisie ``$ php spark db:seed nom_seeder``
 ### Attention
