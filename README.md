@@ -5,7 +5,7 @@ CodeIgniter est un framework écrit en PHP open source créer par EllisLab (une 
 # Préparer l'environnement
 Afin que le site web fonctionnne correctement, il y a quelques chose à préparer <br>
 ### .env & création base de données
-Premièrement, il faut configurer le fichier **.env** puisqu'il n'est pas mis sur ce dépôt. Voici la configuration nécessaire : <br>
+Premièrement, il faut configurer le fichier **.env**. Voici la configuration : <br>
 ![environnement.JPG](./Images_Readme/environnement.JPG) <br>
 ![bdd.JPG](./Images_Readme/bdd.JPG) <br>
 Dans mon cas, ma base de données est appeller **dbTodo**. 
