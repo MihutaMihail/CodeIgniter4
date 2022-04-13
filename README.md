@@ -206,7 +206,7 @@ a --> UC3
 ![adminTaches.JPG](./Images_Readme/adminTaches.JPG)
 
 ### Enchaînement Textuel - Administration 
-**Pour accèder à toutes les tâches il faut être connecter en tant qu'admin.**
+**Pour accèder à toutes les tâches il faut être connecter en tant qu'admin.**<br>
 **•** <i> **Visualer toutes les tâches** </i> <br>
     1. On clique sur **Liste des tâches - ADMIN**. <br>
 <br>
@@ -218,7 +218,6 @@ a --> UC3
 <br>
 
 ## Diagramme de classe
-### Diagramme de classe
 ```plantuml
 @startuml model1
 scale 1
