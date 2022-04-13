@@ -6,7 +6,7 @@ namespace Config;
  * Paths
  *
  * Holds the paths that are used by the system to
- * locate the main directories, app, system, etc.
+ * locate the main directories, app, system, etc.s
  *
  * Modifying these allows you to restructure your application,
  * share a system folder between multiple applications, and more.
