@@ -95,6 +95,27 @@ u --> UC3
 ![modifierTache.JPG](./Images_Readme/Taches/modifierTache.JPG)
 
 ### Enchaînement Textuel - Gérer les tâches 
+**•** <i> **Visualer les tâches** </i> <br>
+    1. On clique sur **Liste des tâches** dans la barre de navigation.<br>
+<br>
+**•** <i> **Ajouter une tâche** </i> <br>
+    1. On clique sur le **+** bleu en bas de la page. <br>
+    2. On décrit la tâche et on met un nombre pour définir son ordre parmi les autres tâches (plus petit le nombre, plus important) et on clique sur **Ajouter +**. <br>
+<br>
+**•** <i> **Modifier une tâche** </i> <br>
+    1. On clique sur le bouton **bleu** de la tâche qu'on veut modifier <br>
+    2. On modifier les données qu'on veut et on clique sur **Modifier**. <br>
+<br>
+**•** <i> **Supprimer une tâche** </i> <br>
+    1. On clique sur le bouton **rouge** <br>
+<br>
+**•** <i> **Faire une tâche** </i> <br>
+    1. On clique sur le bouton **gris** pour effectuer la tâche. Une fois que la tâche est faite, une ligne va apparaître à travers le texte de la tâche pour signifier qu'elle est fini. <br>
+<br>
+**•** <i> **Réordonner les tâches** </i> <br>
+    1. On clique sur le bouton **Réordonner** pour afficher la page de réordonnancement. <br>
+    2. On change l'odre des tâches (plus petit = plus important =>plus haut sur la liste des tâches). <br>
+<br>
 
 ## 2. Connexion
 ### Objectif 
@@ -132,10 +153,33 @@ ua -l-|> v
 ![forgotPasswordCompte.JPG](./Images_Readme/Connexion/forgotPasswordCompte.JPG)
 ![maildev.JPG](./Images_Readme/Connexion/maildev.JPG)
 ![modifierCompte.JPG](./Images_Readme/Connexion/modifierCompte.JPG)
+![menuCompteNonConnecter.JPG](./Images_Readme/Connexion/menuCompteNonConnecter.JPG)
 ![menuCompte.JPG](./Images_Readme/Connexion/menuCompte.JPG)
 
 ### Enchaînement Textuel - Connexion 
-
+** Pour tout qui a besoin d'une vérification par mail, il faut saisir dans le terminal ``$ maildev`` pour démarrer le serveur SMTP et reçevoir les mails.** <br>
+**•** <i> **Création d'un compte** </i> <br>
+    1. On clique sur l'icône **user** pour afficher le menu. <br>
+    2. On clique sur **Créer un compte**. <br>
+    3. On saisie les informations nécessaires <br>
+    4. On y va sur **maildev** pour activer notre compte <br>
+<br>
+**•** <i> **Connexion sur le site** </i> <br>
+    1. On clique sur l'icône **user** pour afficher le menu <br>
+    2. On clique sur **Connexion** <br>
+    3. On se connecte avec ses identifiants (il faut avoir un compte activé) <br>
+<br>
+**•** <i> **Demander un nouveau mot de passe** </i> <br>
+    1. On clique sur **Mot de passe oublié** dans **Se connecter**.<br>
+    2. On saisie l'adresse mail. <br>
+    3. On y va sur **maildev** pour réinitialiser notre mot de passe. <br>
+    4. On saisie notre nouveau mot de passe. <br>
+<br>
+**•** <i> **Modifier ses identifiants** </i> <br>
+    1. On clique sur l'icône **user** pour afficher le menu <br>
+    2. On clique sur **Modifier compte** <br>
+    3. On modifier les identifiants nécessaires (adresse mail, nom d'utilisateur, mot de passe). <br>
+<br>
 ## 3. Administration
 ### Objectif 
 **•** L'objectif est que l'administrateur du site vois les tâches de toutes les utilisateurs. De plus, il doit être capable de les modifier ou les supprimer.
@@ -162,7 +206,16 @@ a --> UC3
 ![adminTaches.JPG](./Images_Readme/adminTaches.JPG)
 
 ### Enchaînement Textuel - Administration 
-
+**Pour accèder à toutes les tâches il faut être connecter en tant qu'admin.**
+**•** <i> **Visualer toutes les tâches** </i> <br>
+    1. On clique sur **Liste des tâches - ADMIN**. <br>
+<br>
+**•** <i> **Modifier toutes les tâches** </i> <br>
+    1. On clique sur l'icône **bleu** pour modifier quel tâche on veut. <br>
+<br>
+**•** <i> **Supprimer toutes les tâches** </i> <br>
+    1. On clique sur l'icône **rouge** pour supprime quel tâche on veut. <br>
+<br>
 
 
 montre le diagramme de classe → codeigniter4_authmyth + table task
