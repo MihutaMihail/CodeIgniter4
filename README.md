@@ -89,6 +89,10 @@ u --> UC3
 ```
 
 ### Maquette - Gérer les tâches
+![menuTaches.JPG](./Images_Readme/Taches/menuTaches.JPG)
+![reordonnerTaches.JPG](./Images_Readme/Taches/reordonnerTaches.JPG)
+![nouvelleTache.JPG](./Images_Readme/Taches/nouvelleTache.JPG)
+![modifierTache.JPG](./Images_Readme/Taches/modifierTache.JPG)
 
 ### Enchaînement Textuel - Gérer les tâches 
 
@@ -123,6 +127,12 @@ ua -l-|> v
 ```
 
 ### Maquette - Connexion
+![creationCompte.JPG](./Images_Readme/Connexion/creationCompte.JPG)
+![loginCompte.JPG](./Images_Readme/Connexion/loginCompte.JPG)
+![forgotPasswordCompte.JPG](./Images_Readme/Connexion/forgotPasswordCompte.JPG)
+![maildev.JPG](./Images_Readme/Connexion/maildev.JPG)
+![modifierCompte.JPG](./Images_Readme/Connexion/modifierCompte.JPG)
+![menuCompte.JPG](./Images_Readme/Connexion/menuCompte.JPG)
 
 ### Enchaînement Textuel - Connexion 
 
@@ -149,6 +159,7 @@ a --> UC3
 ```
 
 ### Maquette - Administration
+![adminTaches.JPG](./Images_Readme/adminTaches.JPG)
 
 ### Enchaînement Textuel - Administration 
 
