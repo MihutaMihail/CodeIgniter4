@@ -152,12 +152,12 @@ ua -l-|> v
 ![loginCompte.JPG](./Images_Readme/Connexion/loginCompte.JPG)
 ![forgotPasswordCompte.JPG](./Images_Readme/Connexion/forgotPasswordCompte.JPG)
 ![maildev.JPG](./Images_Readme/Connexion/maildev.JPG)
-![modifierCompte.JPG](./Images_Readme/Connexion/modifierCompte.JPG)
+![modifierCompte.JPG](./Images_Readme/Connexion/modifierCompte.JPG) <br>
 ![menuCompteNonConnecter.JPG](./Images_Readme/Connexion/menuCompteNonConnecter.JPG)
 ![menuCompte.JPG](./Images_Readme/Connexion/menuCompte.JPG)
 
 ### Enchaînement Textuel - Connexion 
-** Pour tout qui a besoin d'une vérification par mail, il faut saisir dans le terminal ``$ maildev`` pour démarrer le serveur SMTP et reçevoir les mails.** <br>
+**Pour tout qui a besoin d'une vérification par mail, il faut saisir dans le terminal ``$ maildev`` pour démarrer le serveur SMTP et reçevoir les mails.** <br>
 **•** <i> **Création d'un compte** </i> <br>
     1. On clique sur l'icône **user** pour afficher le menu. <br>
     2. On clique sur **Créer un compte**. <br>
@@ -217,8 +217,139 @@ a --> UC3
     1. On clique sur l'icône **rouge** pour supprime quel tâche on veut. <br>
 <br>
 
+## Diagramme de classe
+### Diagramme de classe
+```plantuml
+@startuml model1
+scale 1
+skinparam nodesep 90
+left to right direction
 
-montre le diagramme de classe → codeigniter4_authmyth + table task
+class auth_activation_attemps {
+    id : INT NOT NULL AUTO_INCREMENT
+    ip_address : VARCHAR[255] NOT NULL
+    user_agent : VARCHAR[255] NOT NULL
+    token : VARCHAR[255]
+    created_at : DATETIME NOT NULL
+    PRIMARY KEY (id)
+}
+
+class auth_groups{
+    id : INT NOT NULL AUTO_INCREMENT
+    name : VARCHAR[255] NOT NULL
+    description : VARCHAR[255] NOT NULL
+    PRIMARY KEY (id)
+}
+
+class auth_groups_permissions{
+    group_id : int NOT NULL
+    permission_id : int NOT NULL
+    KEY (group_id,permission_id)
+    FOREIGN KEY (group_id) REFERENCES auth_groups(id)
+    FOREIGN KEY (permission_id) REFERENCES auth_permissions(id)
+}
+
+class auth_groups_users{
+    group_id : int NOT NULL
+    user_id : int NOT NULL
+    PRIMARY KEY (group_id,user_id)
+    FOREIGN KEY (group_id) REFERENCES auth_groups(id)
+    FOREIGN KEY (user_id) REFERENCES users(id)
+}
+
+class auth_logins {
+    id : INT NOT NULL AUTO_INCREMENT
+    ip_address : VARCHAR[255]
+    email : VARCHAR[255]
+    user_id : VARCHAR[255]
+    date : DATETIME NOT NULL
+    success : TINYINT[1] NOT NULL
+    PRIMARY KEY (id)
+    KEY (email)
+    KEY (user_id)
+}
+
+class auth_permissions{
+    id : int NOT NULL AUTO_INCREMENT
+    name : VARCHAR[255] NOT NULL
+    description : VARCHAR[255] NOT NULL
+    PRIMARY KEY (id)
+}
+
+class auth_reset_attempts{
+    id : int NOT NULL AUTO_INCREMENT
+    email : VARCHAR[255] NOT NULL
+    ip_address : VARCHAR[255] NOT NULL
+    user_agent : VARCHAR[255] NOT NULL
+    token : VARCHAR[255] 
+    created_at : DATETIME NOT NULL
+    PRIMARY KEY (id)
+}
+
+class auth_tokens{
+    id : int NOT NULL AUTO_INCREMENT
+    selector : VARCHAR[255] NOT NULL
+    hashedValidator : VARCHAR[255] NOT NULL
+    user_id : int NOT NULL
+    expires : DATETIME NOT NULL
+    PRIMARY KEY (id)
+    KEY (selector)
+    FOREIGN KEY (user_id) REFERENCES users(id)
+}
+
+class auth_users_permissions{
+    user_id : int NOT NULL AUTO_INCREMENT
+    permission_id : VARCHAR[255] NOT NULL
+    KEY (user_id,permission_id)
+    FOREIGN KEY (user_id) REFRENCES users(id)
+    FOREIGN KEY (permission) REFERENCES auth_permissions(id)
+}
+
+class users{
+    id : int NOT NULL AUTO_INCREMENT
+    email : VARCHAR[255] NOT NULL
+    username : VARCHAR[30]  
+    password_hash : VARCHAR[255] NOT NULL
+    reset_hash : VARCHAR[255]
+    reset_at : DATETIME
+    reset_expires : DATETIME
+    activate_hash : VARCHAR[255]
+    status : VARCHAR[255]
+    status_message : VARCHAR[255]
+    active : TINYINT[1] NOT NULL
+    force_pass_reset :  TINYINT[1] NOT NULL
+    created_at : DATETIME
+    updated_at : DATETIME
+    deleted_at : DATETIME
+    PRIMARY KEY (id)
+    UNIQUE KEY (email)
+    UNIQUE KEY (username)
+}
+class tasks{
+    id : int NOT NULL AUTO_INCREMENT
+    text : VARCHAR[100]
+    done : TINYINT[1]
+    order : BIGINT
+    created_at : DATETIME NULL
+    done_at : DATETIME NULL
+    user_id : INT NOT NULL
+    FOREIGN KEY (user_id) REFERENCES users(id)
+}
+
+users "1" -r- "*" auth_groups_users
+users "1" -l- "1" auth_users_permissions
+users "1" -d- "*" auth_logins
+users "1" -r- "*" auth_tokens
+users "1" -- "*" tasks
+
+auth_groups -u- auth_groups_permissions
+auth_groups -l- auth_groups_users
+
+auth_permissions -d- auth_groups_permissions 
+auth_permissions -d-  auth_users_permissions
+
+@enduml
+```
 
 
 
