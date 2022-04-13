@@ -27,11 +27,6 @@ Pour exécuter un seeder on saisie ``$ php spark db:seed nom_seeder``
 ### Attention
 **Les seeders ne vont pas fonctionner si vous avez créer déjà un groupe,utilisateur,etc. Comme les *id* sont en auto_increment, si vous avez créer un groupe,etc, le prochain *id* sera 2 et pas 1. Les seeders ont été créer avec l'idée qu'il a eu aucune modification sur la base de données. Dans le cas où 1 groupe/utilisateur a été créer, pour ne pas recréer une autre base de données, on peut saisir ``alter table nom_table auto_increment = 0;`` pour que le auto_increment recommencera à 0**.<br>
 
-### Code qui manque
-J'avais fait une petite modification au code du Myth/Auth où j'ai remplacer le **throw exception** qu'on a une fois qu'un utilisateur essayé d'accèder à une page qui n'as pas les droits (page admin) par un **redirect back**. Ce code est supprimé puisqu'on doit faire un ``$ composer update`` et instancier de nouveau le **vendor**. <br>
-Le code est situé dans **Vendor/myth/auth/srv/Filters/RoleFilter.php**. <br>
-![noCode.JPG](./Images_Readme/noCode.JPG) <br>
-
 # La structure du CodeIgniter
 CodeIgniter utilise une structur qui s'appelle **Model View Controller (MVC)**. Le principe est de séparer le code de programme et le code de présentation. <br>
 <br>
