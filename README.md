@@ -110,11 +110,13 @@ package Connexion{
     usecase "Connexion" as UC3
     usecase "Demander un nouveau mot de passe \n (s'il l'a oublié)" as UC4
     usecase "Modifier ses identifiants \n (mail, nom utilisateur, mot de passe)" as UC5
+    usecase "Mail avec jeton pour vérification" as UC6
 }
 v --> UC1
 UC2 .u.> UC1 : <<include>>
 v --> UC3
 ua --> UC4
+UC6 .u.> UC4 : <<include>>
 ua --> UC5
 ua -l-|> v
 @enduml
