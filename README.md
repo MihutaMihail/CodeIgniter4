@@ -69,22 +69,22 @@ Dans **/Seeds** on peut ajouter des données dans la base de données qu'on choi
 
 ## 1. Gérer les tâches
 ### Objectif 
-**•** L'objectif est d'être capable d'ajouter/modifier/supprimer un tâche. 
-### Cas Utilisation - Gérer les colocataires
+**•** L'objectif est d'être capable qu'on utilisateur ajoute/modifier/supprime/fait une tâche et aussi réordonner ses propres tâches. 
+### Cas Utilisation - Gérer les tâches
 ```plantuml
 @startuml model1
 scale 1
 skinparam nodesep 50
 left to right direction
-actor Colocataire as c
-package GerezLesColocataires{
-    usecase "Ajouter une tâche" as UC1
-    usecase "Modifier une tâche" as UC2
-    usecase "Supprimer une tâche" as UC3
+actor Utilisateur as u
+package GérerLesTâches{
+    usecase "CRUD des tâches \n (Create Read Update Delete)" as UC1
+    usecase "Faire une tâche" as UC2
+    usecase "Modifier l'ordre des tâches" as UC3
 }
-c --> UC1
-c --> UC2
-c --> UC3
+u --> UC1
+u --> UC2
+u --> UC3
 @enduml
 ```
 
@@ -92,13 +92,64 @@ c --> UC3
 
 ### Enchaînement Textuel - Gérer les tâches 
 
+## 2. Connexion
+### Objectif 
+**•** L'objectif est qu'un visiteur a la possibilité de créer un compte et de se connecter pour pouvoir créer ses tâches. Pour les utilisateurs, il faut leur donner la possibilité de modifier ses identifiants ou redemander un nouveau mot de passe dans le cas d'un oublie.
+### Cas Utilisation - Connexion
+```plantuml
+@startuml model2
+scale 1
+skinparam nodesep 50
+left to right direction
+actor Visiteur as v
+actor Utilisateur_Admin as ua
 
+package Connexion{
+    usecase "Créer un compte" as UC1
+    usecase "Vérification mail" as UC2
+    usecase "Connexion" as UC3
+    usecase "Demander un nouveau mot de passe \n (s'il l'a oublié)" as UC4
+    usecase "Modifier ses identifiants \n (mail, nom utilisateur, mot de passe)" as UC5
+}
+v --> UC1
+UC2 .u.> UC1 : <<include>>
+v --> UC3
+ua --> UC4
+ua --> UC5
+ua -l-|> v
+@enduml
+```
 
-cas utilisations à faire
-1)   gérer les tâches (visualiser, ajouter, modifier, supprimer, finir une tâche)   <br>
-2)   réordonnancement (modifier l'ordre d'une tâche, afficher le nouveau ordre)   <br>
-3)   connexion (créer un compte => include vérification mail, se connecter, mot de passe oublié )   <br>
-4)   adminitration (visualer toutes les tâches, modifier toutes les tâches, supprimer toutes les tâches)   <br>
+### Maquette - Connexion
+
+### Enchaînement Textuel - Connexion 
+
+## 3. Administration
+### Objectif 
+**•** L'objectif est que l'administrateur du site vois les tâches de toutes les utilisateurs. De plus, il doit être capable de les modifier ou les supprimer.
+### Cas Utilisation - Administration
+```plantuml
+@startuml model3
+scale 1
+skinparam nodesep 50
+left to right direction
+actor Admin as a
+
+package Administration{
+    usecase "Visualer toutes les tâches" as UC1
+    usecase "Modifier toutes les tâches" as UC2
+    usecase "Supprimer toutes les tâches" as UC3
+}
+a --> UC1
+a --> UC2
+a --> UC3
+@enduml
+```
+
+### Maquette - Administration
+
+### Enchaînement Textuel - Administration 
+
 
 
 montre le diagramme de classe → codeigniter4_authmyth + table task
