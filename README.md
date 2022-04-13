@@ -13,6 +13,7 @@ Maintenant qu'on a dit quel base de données CodeIgniter doit utiliser, il faut 
 `` pour se connecter (il faut saisir le mot de passe). <br>
 Ensuite, on saisie ``$ create database <nom_base_de_données>`` (sans les < >) pour créer la base de données.
 ### Migration
+Avant de faire les migrations, il faut faire un ``$ composer update`` pour récupérer le **vendor** et avoir accès à la création des tables Myth/Auth.<br>
 Pour faire les migrations, on saisie dans le terminal ``$ php spark migrate --all`` pour les exécuter et donc créer les tables nécessaires dans la base de données (ici on a les tables du *myth/auth* et la table *task*) <br>
 ### Seeder
 Pour ne pas créer les utilisateurs, groupes, tâches, etc, j'ai créer 3 seeders pour que toutes ces choses sont créer automatiquement. Les seeders doivent être exécuter dans un certain ordre sinon ça fonctionne pas. Voici l'ordre : <br>
@@ -20,10 +21,16 @@ Pour ne pas créer les utilisateurs, groupes, tâches, etc, j'ai créer 3 seeder
 2) GroupUser (création d'un groupe admin et d'un groupe utilisateur + association d'un utilisateur dans un groupe) <br>
 3) TaskSeeder (création des tâches pour les 2 utilisateurs) <br>
 
+Pour avoir accès aux identifiants des utilisateurs et de l'admin, il faut aller dans **app/Database/Seeds/AdminUserSeeder.php**
+
 Pour exécuter un seeder on saisie ``$ php spark db:seed nom_seeder``
 ### Attention
 **Les seeders ne vont pas fonctionner si vous avez créer déjà un groupe,utilisateur,etc. Comme les *id* sont en auto_increment, si vous avez créer un groupe,etc, le prochain *id* sera 2 et pas 1. Les seeders ont été créer avec l'idée qu'il a eu aucune modification sur la base de données. Dans le cas où 1 groupe/utilisateur a été créer, pour ne pas recréer une autre base de données, on peut saisir ``alter table nom_table auto_increment = 0;`` pour que le auto_increment recommencera à 0**.<br>
 
+### Code qui manque
+J'avais fait une petite modification au code du Myth/Auth où j'ai remplacer le **throw exception** qu'on a une fois qu'un utilisateur essayé d'accèder à une page qui n'as pas les droits (page admin) par un **redirect back**. Ce code est supprimé puisqu'on doit faire un ``$ composer update`` et instancier de nouveau le **vendor**. <br>
+Le code est situé dans **Vendor/myth/auth/srv/Filters/RoleFilter.php**. <br>
+![noCode.JPG](./Images_Readme/noCode.JPG) <br>
 
 # La structure du CodeIgniter
 CodeIgniter utilise une structur qui s'appelle **Model View Controller (MVC)**. Le principe est de séparer le code de programme et le code de présentation. <br>
