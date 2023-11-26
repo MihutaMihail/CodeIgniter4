@@ -71,6 +71,7 @@ Dans **/Seeds** on peut ajouter des données dans la base de données qu'on choi
 ### Objectif 
 **•** L'objectif est d'être capable qu'on utilisateur ajoute/modifier/supprime/fait une tâche et aussi réordonner ses propres tâches. 
 ### Cas Utilisation - Gérer les tâches
+![image](https://plantuml.gitlab-static.net/png/U9nLKBrE0p4CtlCKdxe0GoNQYXLLkWeMM2fkOx4IjusQIqwsCo5UXetdw8kHme6e5t_IzsTvhKPYTKWOIk2qSEefCTe-nZoIq83S2EKHTxSkySvW1HBt1qE8mjvYoOwy5K5lCKKbuoeWHNKZ-IFj6O-dJs5vOdqvVVW3wvj3cwhiIHcpRjjlq3fWFpHUCwuxuPQ4BLD0FuOptd1YuvlPERpl5fSX3zIkGSqyfKogvQNgkOIuYon8LqL2C_ohdHmhz-ugvlFxxuvVjFn3AxVc7Dh7t1TDIsZ7)
 ```plantuml
 @startuml model1
 scale 1
@@ -121,6 +122,8 @@ u --> UC3
 ### Objectif 
 **•** L'objectif est qu'un visiteur ait la possibilité de créer un compte et de se connecter pour pouvoir créer ses tâches. Pour les utilisateurs, il faut leur donner la possibilité de modifier leurs identifiants ou demander un nouveau mot de passe dans le cas d'un oubli.
 ### Cas Utilisation - Connexion
+![image](https://plantuml.gitlab-static.net/png/U9nTKijE0p4ClEShh5uAKblHvm5Lgw9ovTYUa919t1AQnogF5HBmGVsE_XZUPLlOvkJOunbxabLC65As1gnNP2OYIZG4On4FsfKOq8BZGgGIvdV2q2v1yX3q_Ys1qe5aqju9bCa7sEge4-K06A5gSvkaZOvOfryUbDMkBcOK84gK1zmJhBrpzC4idmBuv4WI8q5l7Kv72f0TI6_BHBswSxCUTr7Rqp7edPPOpm4MjMbnaoksiqfRddRBZsJHgLyvvtD5cDaGNf6WnCY8PmStiQyDc3w2pwz6duwtBTUio_Na5K_4N94YQ4KkyHLTYWr9FUA0DIpaFsi67R4px_oAbpi1AvBmJecNBJrRNVtVl-rRY6zHmN1OD7Qn5J3Ae-O2zx1SQYTDLbGK5z1KP6p36UCNP_pi2dz1pPlG3ByAVkWLESKVIFm0rhEzhG00)
+
 ```plantuml
 @startuml model2
 scale 1
@@ -184,6 +187,8 @@ ua -l-|> v
 ### Objectif 
 **•** L'objectif est que l'administrateur du site vois les tâches de tous les utilisateurs. De plus, il doit être capable de les modifier ou les supprimer.
 ### Cas Utilisation - Administration
+![image](https://plantuml.gitlab-static.net/png/U9nza3iAWa4CXFkS8jWBwe-jADPMedtOZHhS5vji9Lx6gtWnLqN1na1WIFBDG9PgLAt5W35x3WEeey0u1JrBAbGfOkeBvOBp2GG-65h6AiUJePVApYGd86Uvuif7IKYA10Y5t9cE_1wAMgNdvGMmLrDsf8oZlMZhSRLxDcF5qDlkDtTY7JsDTklfBx39NWxo3vZz0jjMIfNuZnZW2eJZyU8Lzr6phnfWoSdt5y43RTLZym00)
+
 ```plantuml
 @startuml model3
 scale 1
@@ -218,6 +223,8 @@ a --> UC3
 <br>
  
 ## Diagramme de classe
+ ![image](https://plantuml.gitlab-static.net/png/U9p5Lzzhsp0GVlTVSUIf7Gia6trOdvfrRcVMkfkN54efHbZNnDI_aEIjCFg_xomxgHpBRhDbB12CTPzEtvtkFiadKZ6XoZI1DEUOJ1qPiGI1dWznLZ31KiZ88B603nCdmNi5AWSHBrSAU2mmKd6UEU142PCIMAbM8QEn7wmQ3vbIc1OIVZb0lvZ3CNZ-7Fmh-YykBc2sc5-5ddyQk9UkFwz1HSWu5qZUZk5w5fn-dWMtxuwExZQpDAoKA4Asn4mDmbJ-WDaMGXiYWKmX9uPa_JIRktFlqctF_HfubxFW1hwuDt0GyqFdgHtdKkHb8NS8BMCf3hAbF4SYBghK3U9UnomiKAInbEIjOQd7GyqrfiIrV3w3Um1wiRM7jotueGQSNGMkT-wtWOSGk6TkuFgdxdUJt85rLjjhPweHq43OLMcy8c1TGNPJAx-Ra9i9UmjsxS-SfBdROaloPPpjfv6q5LCM9pR3Srew9auTqzijieoYUgsvvzyGkTlfIrMxgIfDndZVP7eh2Ps2xcpVVsqxoZMgHlFKBWnjcz5U-j-h8knB5hNpNQANcD0naej1oYicLyYlMH9J5Rw07UXiV2peq9Al3svJaskMVzl8sj2jP3jdMxgsXRe_3oQv5mNR3A8Jmu1GxwBIXZBlgIygZrlz_Nvo1tKn5xJcprpmi2gUGJTrvrfWXhNL4iPujwIqiRa5OQzNkdYfqghDjILCgTkfbsq8xHm7jFO-5n66LG9gLI9eBzRQytLs2zvZeQiYsYtM3bhuthU5sn5xStYzarMzrDMYc7pOfLeKFfgoDvrCccChpzgfqgDK5rZ9o4Vlt6iSz8ZVvfWWFtssv_OrZ-K_aGhz1gFf2CPY3ACte-xTniGaO_sqIui9v8Qp-ZBHjrGjuAQrDkhz88O67nYNuxuhPnkNZ2rnDBwCIPfdZyCUT5_iu9nWnkdBnlaDw3xCg000)
+
 ```plantuml
 @startuml model1
 scale 1
@@ -349,10 +356,3 @@ auth_permissions -d-  auth_users_permissions
  
 @enduml
 ```
- 
- 
- 
- 
- 
- 
-
